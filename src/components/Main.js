@@ -33,11 +33,32 @@ const Main = () => {
         return digi
     }
 
+    const handleCardClick = (index) => {
+        checkClicked(digimon[index].name)
+        setDigimon(shuffleArray(digimon))
+    }
+
+    const checkClicked = (name) => {
+        if (clickedCards.includes(name)) {
+            reset()
+        } else {
+            const newScore = score + 1
+            if (newScore > highScore) setHighScore(newScore)
+            setScore(newScore)
+            setClickedCards(prevCards => [...prevCards, name])
+        }
+    }
+
+    const reset = () => {
+        setScore(0)
+        setClickedCards([])
+    }
+
     return (
         <main>
             <div className="content">
                 <Scores score={score} highScore={highScore} />
-                <CardGrid digimons={digimon} />                
+                <CardGrid digimons={digimon} handleCardClicked={handleCardClick} />                
             </div>
         </main>
     )
