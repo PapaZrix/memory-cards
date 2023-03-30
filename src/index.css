@@ -55,6 +55,25 @@ main {
   gap: 5rem;
 }
 
+.Score, .HighScore {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+  font-size: 1.25rem;
+  border-radius: 0.75rem;
+  width: 250px;
+  box-shadow: 3px 5px 5px rgba(0 0 0 / 30%);
+}
+
+.Score {
+  background-color: #0ea5e9;
+}
+
+.HighScore {
+  background-color: #fdba74;
+}
+
 .Cards {
   text-align: center;
   display: grid;
